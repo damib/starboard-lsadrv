@@ -23,6 +23,11 @@
 #define _stringify(X) #X
 #define LOG(X) printk(KERN_ALERT stringify( MODNAME ) ":" X "\n");
 #define REPORT(FMT,VAL) printk(KERN_ALERT stringify( MODNAME ) ":" FMT "!\n", VAL);
+
+#ifdef WARN
+#undef WARN
+#endif
+
 #define WARN(X) printk(KERN_WARNING stringify( MODNAME ) ":" X "!\n");
 
 static int fakemouse_ioctl(struct file *filp,unsigned int command, unsigned long arg);
