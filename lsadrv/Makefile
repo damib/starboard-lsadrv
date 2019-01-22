@@ -38,8 +38,8 @@ clean-files := *.o *.ko *.mod.[co] $(TARGETS) *~
 
 $(TARGETS): $(SOURCES) $(SOURCESX)
 	mkdir -p $(KERNELRELEASE)
-	@echo "make -C $(KERNEL_SRC) M=`pwd` V=1 modules"
-	make -C $(KERNEL_SRC) M=`pwd` V=1 modules
+	@echo "make -C $(KERNEL_SRC) M=`pwd` V=0 modules"
+	make -C $(KERNEL_SRC) M=`pwd` V=0 modules
 	mv -f lsadrv.ko $(KERNELRELEASE)
 
 .PHONY: dummy
