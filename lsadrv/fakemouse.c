@@ -30,7 +30,7 @@
 
 #define WARN(X) printk(KERN_WARNING stringify( MODNAME ) ":" X "!\n");
 
-static int fakemouse_ioctl(struct file *filp,unsigned int command, unsigned long arg);
+static long fakemouse_ioctl(struct file *filp,unsigned int command, unsigned long arg);
 static int fakemouse_device_open(struct inode *inode, struct file *filp);
 static int fakemouse_device_release(struct inode *inode, struct file *filp);
 
@@ -61,7 +61,7 @@ struct file_operations fakemouse_fops =
 
 int lsadrv_ioctl_mouseevent_dispatch(void *arg);
 
-static int fakemouse_ioctl(struct file *filp,unsigned int command, unsigned long arg)
+static long fakemouse_ioctl(struct file *filp,unsigned int command, unsigned long arg)
 {
   struct lsadrv_mouse_input *minp = (struct lsadrv_mouse_input*)arg;
 
