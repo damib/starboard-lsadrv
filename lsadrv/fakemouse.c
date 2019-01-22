@@ -63,7 +63,7 @@ int lsadrv_ioctl_mouseevent_dispatch(void *arg);
 
 static long fakemouse_ioctl(struct file *filp,unsigned int command, unsigned long arg)
 {
-  struct lsadrv_mouse_input *minp = (struct lsadrv_mouse_input*)arg;
+  struct lsadrv_mouse_input *minp  __attribute__((unused)) = (struct lsadrv_mouse_input*)arg ;
 
   if (_IOC_TYPE(command) != FAKEMOUSE_MAGIC) return -ENOTTY;
 
